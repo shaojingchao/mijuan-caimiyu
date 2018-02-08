@@ -1,0 +1,154 @@
+/* pages/game/index.wxss */
+
+.music-btn{
+  position: absolute;
+  top:20rpx;
+  right:20rpx;
+  width:80rpx;
+}
+.music-btn.playing{
+  animation: rotate-z 4s infinite linear;
+}
+.next-btn{
+  position: absolute;
+  bottom:50rpx;
+  right:225rpx;
+  width:300rpx;
+}
+
+/* 用户信息 */
+.user-info{
+  display: flex;
+  position: absolute;
+  top:20rpx;
+  left:20rpx;
+  color:#fff;
+}
+.user-info text{
+  line-height:118rpx;
+}
+.user-info .done-num{
+  vertical-align: bottom;
+  font-size:40rpx;
+}
+.user-photo{
+  width:118rpx;
+  height:118rpx;
+  margin-right:30rpx;
+  border-radius:50%;
+  border:2rpx solid rgba(255,255,255,.3);
+}
+
+/* 准备好了吗 */
+.ready-box{
+  position: absolute;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 200;
+}
+.ready-box .is-ready{
+   display: block; 
+  width:400rpx;
+  margin:0 auto;
+  margin-top:380rpx;
+}
+.ready-box .ready{
+   display: block; 
+  width:270rpx;
+  margin:0 auto;
+  margin-top:100rpx;
+}
+.ready-box .num{
+   display: block; 
+  width:100rpx;
+  height:100rpx;
+  margin:0 auto;
+  margin-top:50vh;
+  transform: translateY(-50%);
+}
+.ready-box .num.active{
+  animation: zoom-in 0.35s ease;
+}
+@keyframes zoom-in {
+  0%{
+    opacity: 0;
+    transform: translateY(-50%) scale(5);
+  }
+  60%{
+    opacity: 0.4;
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* 试题框 */
+.ques-box{
+  position: absolute;
+  top:200rpx;
+  width:600rpx;
+  height:736rpx;
+  left:75rpx;
+}
+.ques-box .ques-bg{
+  width:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+}
+.ques-body{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 100;
+  padding:90rpx 70rpx 20rpx;
+
+}
+.ques-heading{
+  /* padding-top:20rpx; */
+  line-height: 50rpx;
+  height:200rpx;
+}
+.ques-opts{
+  /* padding-top:10rpx; */
+  display: inline-block;
+
+}
+.ques-opts .ques-opts-item{
+  padding:10rpx 0;
+  font-size:34rpx;
+}
+.ques-opts .ques-opts-item .icon{
+  width:40rpx;
+  height:40rpx;
+  margin-right:20rpx;
+  vertical-align: middle;
+}
+
+/* 倒计时 */
+.ques-count-down{
+  position: absolute;
+  left:0;
+  right:0;
+  bottom:60rpx;
+  text-align: center;
+  font-size:80rpx;
+  color:#af6c3b;
+  font-family:Georgia;
+  font-style: italic;
+}
+
+/* 音乐动画 */
+@keyframes rotate-z {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

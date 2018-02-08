@@ -1,0 +1,104 @@
+/* components/alert.wxss */
+
+.alert-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.alert-head {
+  width: 100%;
+  position: relative;
+  margin-top: 10vh;
+}
+
+.alert-head-bg {
+  width: 600rpx;
+  position: absolute;
+  top: 2rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.alert-head-bird {
+  width: 130rpx;
+  position: absolute;
+  top: -50rpx;
+  left: 50%;
+  z-index:1;
+  transform: translateX(-130%);
+}
+
+.alert-head-bg-light {
+  width: 500rpx;
+  position: absolute;
+  top: -14vh;
+  left: 125rpx;
+  opacity: 0.7;
+  transform: translateX(-50%);
+  animation: rotate-z 10s infinite linear;
+}
+
+.alert-head-photo {
+  width: 172rpx;
+  height: 172rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 10rpx solid rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.alert-body{
+  position: absolute;
+  bottom:350rpx;
+  left:0;
+  right:0;
+  text-align: center;
+  color:#fff;
+}
+.alert-body .main-txt{
+  font-size:34rpx;
+  font-weight:700;
+  margin-bottom: 10rpx;
+}
+.alert-body .times-txt{
+  font-size:30rpx;
+  margin-top: 60rpx;
+  margin-bottom:20rpx;
+}
+.btns{
+  margin:0 auto;
+  width:60%;
+  text-align: center;
+}
+.btns .btn {
+  font-size:30rpx;
+  border-radius: 8rpx;
+  padding:17rpx;
+}
+.btns .btn-wran{
+  background-color:#fe8208;
+  color:#fff;
+}
+.btns .btn-prim{
+  background-color:#41bd43;
+  color:#fff;
+}
+.sub-btns{
+  display: flex;
+  justify-content: space-between;
+  margin-top:20rpx;
+}
+.sub-btns .btn{
+  width:50%;
+}
+.sub-btns .btn:first-child{
+   margin-right:20rpx; 
+}

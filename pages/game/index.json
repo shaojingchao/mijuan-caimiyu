@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "game-alert": "/components/alert",
+    "game-lottery": "/components/lottery"
+  }
+}

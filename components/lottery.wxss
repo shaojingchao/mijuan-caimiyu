@@ -1,0 +1,131 @@
+/* components/lottery.wxss */
+.alert-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.alert-head {
+  width: 100%;
+  position: relative;
+  margin-top: 16vh;
+}
+.alert-head .main-txt{
+  color:#fff;
+  font-size:38rpx;
+  text-align: center;
+}
+
+.alert-head-bg {
+  width: 280rpx;
+  position: absolute;
+  top: 2rpx;
+  left: 50%;
+  transform-origin: center 85%;
+  margin-left:calc(-280rpx / 2);
+}
+.alert-head-bg.lottering{
+ animation: lottering 1.5s ease
+}
+
+.alert-head-fail {
+  width: 600rpx;
+  position: absolute;
+  top: -50rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.alert-head-luck {
+  width: 350rpx;
+  position: absolute;
+  left: 50%;
+  padding-top: 40rpx;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.alert-head-bg-light {
+  width: 600rpx;
+  position: absolute;
+  top: -4vh;
+  left: 75rpx;
+  opacity: 0.7;
+  animation: rotate-z 10s infinite linear;
+}
+
+.alert-body{
+  position: absolute;
+  bottom:200rpx;
+  left:0;
+  right:0;
+  text-align: center;
+  color:#fff;
+}
+.alert-body .sub-txt{
+  font-size:30rpx;
+  color:#eecf25;
+  margin-bottom: 160rpx;
+}
+.btns{
+  margin:0 auto;
+  width:50%;
+  text-align: center;
+}
+.btns .btn {
+  font-size:30rpx;
+  border-radius: 8rpx;
+  padding:20rpx;
+}
+.watch{
+  margin-top: 20rpx;
+}
+.btns .btn-wran{
+  background-color:#fe8208;
+  color:#fff;
+}
+.btns .btn-prim{
+  background-color:#41bd43;
+  color:#fff;
+}
+
+/* 抽奖动画 */
+@keyframes lottering {
+  0%{
+    transform: translateX(0) rotateZ(0);
+  }
+  10%{
+    transform: translateX(-10rpx) rotateZ(-10deg);
+  }
+  20%{
+    transform: translateX(10rpx) rotateZ(10deg);
+  }
+  30%{
+    transform: translateX(-10rpx) rotateZ(-10deg);
+  }
+  40%{
+    transform: translateX(10rpx) rotateZ(10deg);
+  }
+  50%{
+    transform: translateX(-10rpx) rotateZ(-10deg);
+  }
+  60%{
+    transform: translateX(10rpx) rotateZ(10deg);
+  }
+  70%{
+    transform: translateX(-10rpx) rotateZ(-10deg);
+  }
+  80%{
+    transform: translateX(10rpx) rotateZ(10deg);
+  }
+  90%{
+    transform: translateX(-10rpx) rotateZ(-10deg);
+  }
+  100%{
+    transform: translateX(0) rotateZ(0);
+  }
+}

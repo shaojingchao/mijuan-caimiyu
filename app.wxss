@@ -1,0 +1,174 @@
+/**app.wxss**/
+@import './assets/font/iconfont.wxss';
+
+page{
+  font-size:30rpx;
+}
+.b{
+  font-weight: 700;
+}
+.tc{
+  text-align:center;
+}
+.tl{
+  text-align:left;
+}
+.tr{
+  text-align:right;
+}
+.t-warning{
+  color:#ecb208;
+}
+.t-success{
+  color:#41bd43;
+}
+.t-muted{
+  color:#777;
+}
+.t-primary{
+  color:#41bd43;
+}
+.t-red{
+  color:#e30909;
+}
+.f26{
+  font-size:26rpx;
+}
+.f34{
+  font-size:34rpx;
+}
+.f40{
+  font-size:40rpx;
+}
+.lh{
+  /* line-height:1.4; */
+}
+.mt20{
+  margin-top: 20rpx;
+}
+.mt30{
+  margin-top: 30rpx;
+}
+.mt40{
+  margin-top: 40rpx;
+}
+.mt50{
+  margin-top: 50rpx;
+}
+.mt60{
+  margin-top: 60rpx;
+}
+.mb20{
+  margin-bottom: 20rpx;
+}
+.mb30{
+  margin-bottom: 30rpx;
+}
+.mb40{
+  margin-bottom: 40rpx;
+}
+.mb50{
+  margin-bottom: 50rpx;
+}
+.mb60{
+  margin-bottom: 60rpx;
+}
+.pt20{
+  padding-top: 20rpx;
+}
+.pt30{
+  padding-top: 30rpx;
+}
+.pt40{
+  padding-top: 40rpx;
+}
+.pt50{
+  padding-top: 50rpx;
+}
+.pt60{
+  padding-top: 60rpx;
+}
+.pb20{
+  padding-bottom: 20rpx;
+}
+.pb30{
+  padding-bottom: 30rpx;
+}
+.pb40{
+  padding-bottom: 40rpx;
+}
+.pb50{
+  padding-bottom: 50rpx;
+}
+.pb60{
+  padding-bottom: 60rpx;
+}
+.db{
+  display: block;
+}
+.on-active{
+  /* transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) ; */
+  /* transition: all 1s; */
+}
+.on-active:active{
+  opacity: 0.9;
+  animation:active-zoom 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.btn-loading[plain]{
+  border:none;
+  color:rgba(255,255,255,.8);
+}
+/* 通用背景 */
+.app-page{
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.app-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  width:100vw;
+  height:100vh;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.anim-zoom{
+  animation: anim-zoom 2s infinite; 
+}
+.lottery--anim-zoom{
+  animation: anim-zoom 2s infinite; 
+}
+
+@keyframes anim-zoom{
+  0%{
+    transform: scale(0.95);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(0.95);
+  }
+}
+
+@keyframes active-zoom{
+  0%{
+    opacity:1;
+    transform: scale(1);
+  }
+  100%{
+    opacity:0.8;
+    transform: scale(0.985);
+  }
+}

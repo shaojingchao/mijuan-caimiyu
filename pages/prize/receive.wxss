@@ -1,0 +1,91 @@
+/* pages/prize/receive.wxss */
+.app-receive{
+  background-color: #fff;
+}
+
+.app-receive .head-bg{
+  background-color: #fc6139;
+  padding-top: 70rpx;
+  color:#fff;
+  text-align: center;
+  position: relative;
+  padding-bottom:70rpx;
+}
+.app-receive .head-bg .main-txt{
+ font-weight: 700;
+}
+.app-receive .head-bg image{
+  position: absolute;
+  width:100%;
+  bottom:0;
+  right:0;
+  left:0;
+}
+
+.select-subject{
+  display: flex;
+  padding:30rpx 0;
+  justify-content: space-between;
+}
+.select-subject .opts-item{
+  width:50%;
+  font-weight:700;
+  margin:0 30rpx;
+  border:1rpx solid #ccc;
+  border-radius: 8rpx;
+  background-color: #fff;
+  text-align: center;
+  padding:15rpx 0;
+}
+.select-subject text.active{
+  color:#fc6139;
+  border-color: #fc6139;
+}
+.select-subject .iconfont{
+  display: inline-block;
+  font-size:34rpx;
+  width:40rpx;
+  /* margin-left:-10rpx; */
+  margin-right: -40rpx;
+}
+
+.form-list{
+}
+.form-list .tips{
+  padding:20rpx;
+  color:#aaa;
+  font-size:26rpx;
+  background-color: #f3f5f7;
+}
+.form-list .section{
+  display: flex;
+  margin-left:20rpx;
+  border-bottom:1rpx solid #ddd;
+}
+.form-list .section__title{
+  flex:0 0 auto;
+  margin-left:20rpx;
+  padding:30rpx 0;
+}
+.form-list .section__item{
+  flex:1 1 auto;
+  padding:30rpx;
+}
+.form-list .section__arrow{
+  flex:0 0 auto;
+  padding:30rpx 15rpx 30rpx;
+  color:#999;
+}
+.btn-area{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  border-top:1rpx solid #ddd;
+  padding:20rpx;
+  margin-top:30rpx;
+}
+.btn-area .btn{
+ background-color: #41bd43;
+ color:#fff;
+ }

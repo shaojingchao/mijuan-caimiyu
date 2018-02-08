@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="app-page">
+  <image class='app-bg' mode='widthFix' src='/assets/img/idx_bg.png'></image>
+  <image class='music-btn on-active {{music_state}}' bindtap='bindMusicOn' mode='widthFix' src='/assets/img/music_on.png'></image>
+  <image class='next-btn on-active' bindtap='bindNextQues' mode='widthFix' src='{{(current_ques + 1) < ques_total || ques_total === 0 ? "/assets/img/next_btn.png" : "/assets/img/submit_btn.png"}}'></image>
+
+  <!-- 用户信息 -->
+  <view class='user-info'>
+    <image class='user-photo' mode='widthFix' src='/assets/img/avatar.png'></image>
+    <text class='f34 done-num'>{{current_ques + 1}}</text>
+    <text class='f26'>/</text>
+    <text class='f26'>{{ques_total}}</text>
+  </view>
+
+  <!-- 倒计时准备 -->
+  <view class='ready-box' wx:if='{{ready_state !== "done"}}'>
+    <image mode='widthFix' wx:if='{{ready_state === "ready"}}' class='is-ready' src='/assets/img/is_ready.png'></image>
+    <image mode='widthFix' bindtap='bindReady' wx:if='{{ready_state === "ready"}}' class='ready on-active' src='/assets/img/ready.png'></image>
+    <image mode='aspectFit' wx:if='{{ready_state === 3}}' class='num {{ready_state === 3 ? "active" : ""}}' src='/assets/img/num_3.png'></image>
+    <image mode='aspectFit' wx:if='{{ready_state === 2}}' class='num {{ready_state === 2 ? "active" : ""}}' src='/assets/img/num_2.png'></image>
+    <image mode='aspectFit' wx:if='{{ready_state === 1}}' class='num {{ready_state === 1 ? "active" : ""}}' src='/assets/img/num_1.png'></image>
+  </view>
+
+  <view class='ques-box'>
+    <image class='ques-bg' mode='widthFix' src='/assets/img/ques_bg.png' bindtap='bindStartGame'></image>
+    <view class='ques-body'>
+      <view class='ques-heading'>
+        <rich-text nodes='{{ques_heading}}'></rich-text>
+      </view>
+
+      <view class='ques-opts'>
+        <view class='ques-opts-item on-active' bindtap='bindQuesSelect' wx:for='{{ques_items}}' wx:for-item='opts' wx:for-index='i' wx:key='i' data-answer='{{opts.correct}}' data-value='{{opts.option}}'>
+          <image class='icon' mode='aspectFit' hidden='{{opts.option !== ques_selected}}' src='/assets/img/option_selected.png' />
+          <image class='icon' mode='aspectFit' hidden='{{opts.option === ques_selected}}' src='/assets/img/option_select.png' />
+          <text>{{opts.option}}{{isDebug ? opts.correct ? " √" : " ×" : ""}}</text>
+        </view>
+      </view>
+
+      <view class='ques-count-down'>
+        {{ques_times}}
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 答题完毕 -->
+  <game-alert wx:if='{{game_state === "showscore"}}' score='{{game_score}}' times='{{times_count}}' type='{{game_score == 100 ? "success" : "fail"}}' bind:golottery='bindGoLottery'></game-alert>
+  <game-lottery wx:if='{{game_state === "lottery"}}' bind:bindLottery='bindLottery'></game-lottery>
+</view>

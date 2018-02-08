@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/game/index",
+    "pages/prize/index",
+    "pages/prize/receive",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "navigationStyle": "default",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#393a3f",
+    "navigationBarTitleText": "元宵节猜灯谜",
+    "navigationBarTextStyle":"white"
+  }
+}

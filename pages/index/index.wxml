@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view class="app-page">
+  <image class='app-bg' mode='widthFix' src='/assets/img/idx_bg.png'></image>
+  <image class='idx-tips-btn anim-zoom on-active' bindtap='bindShowTips' mode='widthFix' src='./imgs/tips_btn.png'></image>
+  <image class='idx-top-title anim-zoom' mode='widthFix' src='./imgs/idx_title.png'></image>
+  <image class='idx-play-btn on-active' mode='widthFix' src='./imgs/play_btn.png' bindtap='bindStartGame'></image>
+
+  <!-- <button></button> -->
+  <view class='idx-people-num on-active'>已有
+    <text>{{personTimes}}</text> 人参加活动</view>
+  <view class='idx-footer'>
+    <text>河南天星教育科技有限公司</text>
+  </view>
+
+  <view id='tips-box' class='{{showTips === true ? "is-open" : ""}}'>
+    <icon class='close-tips-box on-active' bindtap='bindHideTips'></icon>
+    <!-- <button icon=''></button> -->
+    <view class='tips-tabs'>
+      <view class='tips-tabs-nav'>
+        <text class='{{tabCurrentIndex === "0" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='0'>活动介绍</text>|
+        <text class='{{tabCurrentIndex === "1" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='1'>中奖纪录</text>|
+        <text class='{{tabCurrentIndex === "2" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='2'>我的奖励</text>
+      </view>
+      <view class='tab-body'>
+        <scroll-view scroll-y bindscrolltolower='scrollToBottom0' class='hd-intro' wx:if='{{tabCurrentIndex === "0"}}'>
+          <view class='intro-item'>
+            <view class='intro-tit mb20'>
+              <text class='b f26'>活动时间</text>
+            </view>
+            <view class='intro-item-content'>
+              <text>{{activityIntro.lotterydate}}</text>
+            </view>
+          </view>
+          <view class='intro-item'>
+            <view class='intro-tit mb20'>
+              <text class='b f26'>活动奖品</text>
+            </view>
+            <view class='intro-item-content'>
+              <text>{{activityIntro.enddesc}}</text>
+            </view>
+          </view>
+          <view class='intro-item'>
+            <view class='intro-tit mb20'>
+              <text class='b f26'>活动说明</text>
+            </view>
+            <view class='intro-item-content'>
+              <rich-text class='lh f26' nodes='{{activityIntro.abody}}'></rich-text>
+            </view>
+          </view>
+        </scroll-view>
+        <scroll-view scroll-y bindscrolltolower='scrollToBottom1' wx:if='{{tabCurrentIndex === "1"}}'>
+          <view class='prize-record-item' wx:for='{{prizeRecoreList}}' wx:for-item='item' wx:item-index='i' wx:key='i'>
+            <text class='nick-name'>{{item.nickname}}</text>
+            <image class='img user-icon' mode='aspectFit' src='{{item.avatarurl}}'></image>
+            <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
+            <text>{{item.gettime}}</text>
+          </view>
+          <view class='tc mt30 f26' style='opacity:0.7;'>最新中奖信息~</view>
+          <!-- <button loading plain class='f26 btn-loading'>加载中</button> -->
+        </scroll-view>
+        <scroll-view scroll-y bindscrolltolower='scrollToBottom2' wx:if='{{tabCurrentIndex === "2"}}'>
+          <view class='my-prize-item on-active' wx:for='{{myPrize}}' wx:for-item='item' wx:item-index='i' wx:key='i' data-status='{{item.status}}' bindtap='bindReceivePrize'>
+            <view class='prize-info'>
+              <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
+              <view class='prize-txt'>
+                <view class='prize-name'>
+                  <text>{{item.title}}</text>
+                </view>
+                <view class='prize-time f26'>
+                  <text>有效期限：{{item.indate}}</text>
+                </view>
+              </view>
+              <image class='arrow-right' wx:if='{{item.status == 0}}' mode='aspectFit' src='./imgs/arrow_right.png'></image>
+            </view>
+            <view class='prize-state' wx:if='{{item.status == 0}}'>
+              <text>未领取</text>
+            </view>
+            <view class='prize-state t-success' wx:if='{{item.status == 1}}'>
+              <text>已领取</text>
+              <text>将于2018年5月10日全国统一发货</text>
+            </view>
+            <view class='prize-state t-warning' wx:if='{{item.status == 2}}'>
+              <text>已过期</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

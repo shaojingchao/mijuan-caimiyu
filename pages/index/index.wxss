@@ -1,0 +1,247 @@
+/**index.wxss**/
+.idx-tips-btn{
+  position: absolute;
+  top:3vw;
+  right:3vw;
+  width:16vw;
+  z-index: 100;
+}
+.idx-top-title{
+  position: absolute;
+  top:38px;
+  right:10vw;
+  width:80vw;
+}
+.idx-play-btn{
+  position: absolute;
+  bottom:15vh;
+  right:30vw;
+  width:40vw;
+}
+.idx-people-num{
+  position: absolute;
+  bottom:10vh;
+  left:0;
+  right:0;
+  text-align: center;
+  font-size:16px;
+  font-weight:600;
+  text-shadow: 0 0 1px #7d4919;
+  color:#ffe1a2;
+}
+.idx-footer{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  line-height: 3;
+  text-align: center;
+  color:rgba(255,255,255,.6);
+  font-size:26rpx;
+  background-color: rgba(0,0,0,.4);
+}
+
+/* 活动锦囊 */
+#tips-box{
+  /* display: none; */
+  visibility: hidden;
+  position: fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:100;
+  padding:20rpx;
+  background-color: rgba(0,0,0,.7);
+  transform-origin: right top;
+  transform: scale(0.1);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#tips-box.is-open{
+  display: block;
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+.close-tips-box{
+  position: absolute;
+  right:20rpx;
+  top:20rpx;
+  box-sizing: border-box;
+  width:100rpx;
+  height:100rpx;
+  padding:48.5rpx 0;
+}
+.close-tips-box:before,.close-tips-box:after{
+  content:'';
+  display: block;
+  height:3rpx;
+  background-color: #fff;
+  width:100%;
+}
+.close-tips-box:before{
+  transform:rotate(-45deg);
+}
+.close-tips-box:after{
+  transform:rotate(45deg);
+}
+.tips-tabs{
+  color:rgba(255,255,255,.9);
+}
+.tips-tabs-nav{
+  display: flex;
+  color:rgba(255,255,255,.4);
+  padding-left:20rpx;
+  border-bottom:1rpx solid rgba(255,255,255,.6);
+  line-height:90rpx;
+}
+.tips-tabs-nav text{
+  position: relative;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  display: inline-block;
+  height:100rpx;
+  width:180rpx;
+  padding:35rpx 0;
+  line-height:30rpx;
+  color:#fff;
+  text-align: center;
+}
+.tips-tabs-nav text.active{
+  font-size:32rpx;
+  font-weight:700;
+}
+.tips-tabs-nav text.active:after{
+  content:'';
+  display: block;
+  position: absolute;
+  bottom:0;
+  left:0;
+  background-color: #fff;
+  height:6rpx;
+  border-radius: 6rpx 6rpx 0 0;
+  width:100%;
+}
+.tips-tabs-nav text.active:before{
+  display: block;
+}
+.tips-tabs-nav text:before{
+  display: none;
+  content:'';
+  height:0;
+  width:0;
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom: 4rpx;
+  border-width:0 10rpx 10rpx;
+  border-style: solid;
+  border-color:transparent transparent #fff transparent;
+}
+.tab-body{
+  height:calc(100vh - 300rpx);
+}
+.tab-body scroll-view{
+  height:100%;
+}
+
+/* 活动介绍 */
+.hd-intro{}
+.intro-item{
+  padding: 30rpx 20rpx;
+}
+.hd-intro .intro-tit text{
+  display: inline-block;
+  padding:13rpx 13px;
+  border-radius: 4rpx;
+  background-color: #fff;
+  color:#444;
+}
+
+.guanzhu{
+  display: block;
+  width:500rpx;
+  margin:0 auto;
+}
+
+/*中奖记录  */
+.prize-record-item{
+  padding:20rpx 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom:1rpx dashed rgba(255,255,255,.4);
+}
+ .prize-record-item .img{
+  width:90rpx;
+  height:90rpx;
+  margin:0 20rpx;
+}
+ .prize-record-item .img.user-icon{
+  border-radius: 50%;
+} 
+.prize-record-item .nick-name{
+  width:120rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.prize-record-item text{
+  text-align: center;
+  flex: 1 1 auto;
+  line-height: 90rpx;
+}
+/* 我的奖品 */
+.my-prize-item{
+  position: relative;
+  border:1rpx solid rgba(255,255,255,.5);
+  border-radius: 10rpx;
+  margin-bottom:30rpx;
+  margin:30rpx;
+  overflow:hidden;
+}
+.my-prize-item:before{
+  content:'奖品';
+  display: block;
+  position: absolute;
+  left:-40rpx;
+  top:10rpx;
+  height:40rpx;
+  font-size:24rpx;
+  line-height:44rpx;
+  width:140rpx;
+  text-align: center;
+  background-color: #e30909;
+   transform: rotate(-45deg); 
+}
+.my-prize-item .prize-info{
+  display: flex;
+  justify-content: space-between;
+  padding:20rpx;
+  border-bottom:1rpx dashed rgba(255,255,255,.4);
+}
+.my-prize-item .prize-info .img{
+  flex:0 0 auto;
+  width:110rpx;
+  height:110rpx;
+}
+.my-prize-item .prize-info .arrow-right{
+  flex:0 0 auto;
+  width:13rpx;
+  height:34rpx;
+  padding-top:38rpx;
+}
+.my-prize-item .prize-txt{
+  flex:1 1 auto;
+  padding-top:10rpx;
+  padding-left:20rpx;
+}
+.my-prize-item .prize-time{
+  padding-top:20rpx;
+}
+.my-prize-item .prize-state{
+  display: flex;
+  justify-content: space-between;
+  padding:15rpx 20rpx;
+  font-size:26rpx;
+}

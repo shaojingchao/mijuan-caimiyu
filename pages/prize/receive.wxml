@@ -1,0 +1,54 @@
+<!--pages/prize/receive.wxml-->
+<view class='app-receive'>
+  <view class='head-bg'>
+    <view class='f40 main-txt'>
+      <text>价值298元押题密卷1套</text>
+    </view>
+    <view class='f26 mt20'>
+      <text>价值298元押题密卷1套</text>
+    </view>
+    <image style='width:100%;' mode='widthFix' src='/assets/img/receive_bg.png'></image>
+  </view>
+
+  <view class='select-subject'>
+    <text class='opts-item {{subject === "2" ? "active" : ""}}' bindtap='bindSelectSubject' data-id='2'>理科<text wx:if='{{subject === "2"}}' class='iconfont tx-right1'></text></text>
+    <text class='opts-item {{subject === "1" ? "active" : ""}}' bindtap='bindSelectSubject' data-id='1'>文科<text wx:if='{{subject === "1"}}' class='iconfont tx-right1'></text></text>
+  </view>
+
+  <view class='form-list'>
+    <form bindsubmit="bindSendUserInfo" bindreset="formReset">
+      <view class='address-info-form'>
+        <view class='tips'>*填写收货人信息领取奖励</view>
+      </view>
+      <view class="section">
+        <view class="section__title">收货人：</view>
+        <input class='section__item' bindblur='bindValidate' data-tips='收货人' focus='{{formFocus === "receivers"}}' data-name='receivers' name="receivers" type='text' bindinput='bindReceiversInput' placeholder="" />
+      </view>
+      <view class="section">
+        <view class="section__title">手机号码：</view>
+        <input class='section__item' bindblur='bindValidate' data-tips='手机号' focus='{{formFocus === "phonenumber"}}' data-name='phonenumber' name="phonenumber" type='number' bindinput='bindPhonenumberInput' maxlength='11' placeholder="" />
+      </view>
+      <view class="section">
+        <view class="section__title">所在地区：</view>
+        <picker class='section__item' mode="region" bindblur='bindValidate' focus='{{formFocus === "address"}}' name='address' bindchange="bindRegionChange" value="{{region}}">
+          <view class="picker" wx:if='{{region.length > 0}}'>
+            {{region[0]}} {{region[1]}} {{region[2]}}
+          </view>
+          <view class="picker" wx:if='{{region.length === 0}}'>
+            <text class='t-muted'>选择 省/市/区</text>
+          </view>
+        </picker>
+        <view class='section__arrow'>
+          <text class='iconfont tx-right'></text>
+        </view>
+      </view>
+      <view class="section">
+        <view class="section__title">详细地址：</view>
+        <input class='section__item' bindblur='bindValidate' data-tips='详细地址' data-name='detailaddress' name="detailaddress" focus='{{formFocus === "detailaddress"}}' bindinput='bindDetailaddressInput' placeholder="街道、楼牌号等" />
+      </view>
+      <view class="btn-area">
+        <button class='btn' formType="submit">确定并领取奖励</button>
+      </view>
+    </form>
+  </view>
+</view>

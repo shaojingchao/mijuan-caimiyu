@@ -1,0 +1,24 @@
+<!--components/alert.wxml-->
+<view class='alert-wrap'>
+  <view class='alert-head'>
+     <image class='alert-head-bg' mode='widthFix' wx:if='{{type === "success"}}' src='/assets/img/alert_success.png'></image> 
+    <image class='alert-head-bird' mode='widthFix' wx:if='{{type === "fail"}}' src='/assets/img/bird.png'></image>
+    <image class='alert-head-bg' mode='widthFix' wx:if='{{type === "fail"}}' src='/assets/img/alert_fail.png'></image>
+    <image class='alert-head-bg-light' mode='widthFix' wx:if='{{type === "success"}}' src='/assets/img/light_circle.png'></image>
+    <image class='alert-head-photo' mode='widthFix' src='/assets/img/avatar.png'></image>
+  </view>
+
+  <view class='alert-body'>
+    <view class='main-txt'><text>您的成绩为： {{score}}分</text></view>
+    <view><text>成绩必须达到 100 分才能抽奖</text></view>
+    <view class='times-txt'><text>今天还有 {{times}} 次机会抽奖</text></view>
+    <view class='btns' wx:if='{{btns.length}}'>
+      <navigator class='btn btn-wran on-active' wx:if='{{type==="fail"}}' open-type='{{btns[0].opentype}}' url='{{btns[0].url}}'>{{btns[0].text}}</navigator>
+      <view class='btn btn-wran on-active' wx:if='{{type==="success" && times > 0 || isDebug}}' bindtap='bindGoLottery'>{{btns[0].text}}</view>
+      <view class='sub-btns'>
+        <navigator class='btn btn-prim on-active' url='{{btns[1].url}}' open-type='{{btns[1].opentype}}'>{{btns[1].text}}</navigator>
+        <navigator class='btn btn-prim on-active' url='{{btns[2].url}}' open-type='{{btns[2].opentype}}'>{{btns[2].text}}</navigator>
+      </view>
+    </view>
+  </view>
+</view>

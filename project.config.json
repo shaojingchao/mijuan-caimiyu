@@ -1,0 +1,52 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.8",
+	"appid": "wx1f0c3a334d5180b1",
+	"projectname": "%E5%A4%A9%E6%98%9F%E6%95%99%E8%82%B2-%E7%8C%9C%E7%81%AF%E8%B0%9C",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "game",
+					"pathName": "pages/game/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/prize/receive",
+					"pathName": "pages/prize/receive",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "游戏界面 -> 中奖记录",
+					"pathName": "pages/index/index",
+					"query": "showtips=1&index=1&t=3123232328328"
+				}
+			]
+		}
+	}
+}
