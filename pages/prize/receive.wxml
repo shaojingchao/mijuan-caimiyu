@@ -2,16 +2,21 @@
 <view class='app-receive'>
   <view class='head-bg'>
     <view class='f40 main-txt'>
-      <text>价值298元押题密卷1套</text>
+      <text>恭喜获得：{{prizeTitle}}</text>
     </view>
     <view class='f26 mt20'>
-      <text>价值298元押题密卷1套</text>
+      <text>有效期限：{{prizeIndate}}</text>
     </view>
     <image style='width:100%;' mode='widthFix' src='/assets/img/receive_bg.png'></image>
   </view>
 
+  <view class='form-label-name'>
+    选择文理科:
+  </view>
+
   <view class='select-subject'>
     <text class='opts-item {{subject === "2" ? "active" : ""}}' bindtap='bindSelectSubject' data-id='2'>理科<text wx:if='{{subject === "2"}}' class='iconfont tx-right1'></text></text>
+    <text class='opts-split'>or</text>
     <text class='opts-item {{subject === "1" ? "active" : ""}}' bindtap='bindSelectSubject' data-id='1'>文科<text wx:if='{{subject === "1"}}' class='iconfont tx-right1'></text></text>
   </view>
 
@@ -47,7 +52,7 @@
         <input class='section__item' bindblur='bindValidate' data-tips='详细地址' data-name='detailaddress' name="detailaddress" focus='{{formFocus === "detailaddress"}}' bindinput='bindDetailaddressInput' placeholder="街道、楼牌号等" />
       </view>
       <view class="btn-area">
-        <button class='btn' formType="submit">确定并领取奖励</button>
+        <button class='btn' formType="submit">确定并提交</button>
       </view>
     </form>
   </view>

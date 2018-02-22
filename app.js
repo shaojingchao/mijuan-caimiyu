@@ -4,17 +4,18 @@ wx.$http = request
 
 var CONFIG = {
   HOSTNAME: 'http://192.168.4.112:4000',
-  DEBUG: false
+  DEBUG: true
 }
-var HOSTNAME = 'http://192.168.4.112:4000'
 App({
   onShow: function () {
   },
   api: {
+    gameBgMusic: CONFIG.HOSTNAME + '/statics/music/riddle_bgm.mp3',
     login: CONFIG.HOSTNAME + '/index/riddle/login.html', // 登录
     adduserinfo: CONFIG.HOSTNAME + '/index/riddle/ajax-save-user-info.html', // 领奖
     prizerecordlist: CONFIG.HOSTNAME + '/index/riddle/get-lottery-user-list.html', // 中奖记录
     myprizelist: CONFIG.HOSTNAME + '/index/riddle/ajax-get-user-lottery.html', // 我的奖励
+    receivePrize: CONFIG.HOSTNAME + '/index/riddle/get-user-lottery-by-id.html', // 领取奖励
     lottery: CONFIG.HOSTNAME + '/index/riddle/ajax-draw-lottery.html', // 抽奖
     sendanwser: CONFIG.HOSTNAME + '/index/riddle/examine-answer.html', // 提交答题结果
     gamedata: CONFIG.HOSTNAME + '/index/riddle/index.html', // 随机获取谜语

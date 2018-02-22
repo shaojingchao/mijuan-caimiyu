@@ -104,6 +104,7 @@
   height:100rpx;
   width:180rpx;
   padding:35rpx 0;
+  margin-bottom:-2rpx;
   line-height:30rpx;
   color:#fff;
   text-align: center;

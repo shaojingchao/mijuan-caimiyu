@@ -159,9 +159,10 @@ Page({
   // 领取奖品
   bindReceivePrize: function (e) {
     var _status = e.currentTarget.dataset.status
+    var _id = e.currentTarget.dataset.id
     if (_status != 1) {
       wx.navigateTo({
-        url: '../prize/receive',
+        url: '../prize/receive?id='+_id,
       })
     }
   }

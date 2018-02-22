@@ -56,7 +56,7 @@ Page({
       })
     } else {
       wx.playBackgroundAudio({
-        dataUrl: 'http://192.168.4.112:4000/statics/music/riddle_bgm.mp3',
+        dataUrl: api.gameBgMusic,
         title: '纯音乐 - 欢快古典音乐',
         success: function () {
           _self.setData({
@@ -111,6 +111,8 @@ Page({
   // 开始答题
   quesTimer: null,
   startAnswer: function () {
+    //播放背景音乐
+    this.bindMusicOn()
     if (this.data.ques_times > 0) {
       // 设置定时器
       this.quesTimer = setInterval(() => {

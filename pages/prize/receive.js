@@ -5,9 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    prizeTitle: '',
+    prizeIndate: '',
     region: [],
     customItem: '全部',
-    subject: '2',
+    subject: '',
     formFocus: '',
     validateMap: {
       receivers: false,
@@ -25,7 +27,7 @@ Page({
       'username': '', // 用户名
       'userphone': '', // 手机号
       'useraddress': '', // 地址
-      'kldm': '2', // 1-文科 2-理科
+      'kldm': '', // 1-文科 2-理科
       'grade': '3' // 1-高一 2-高二 3-高三
     }
   },
@@ -105,6 +107,15 @@ Page({
     var _validateMap = this.data.validateMap
     var _validateMapTips = this.data.validateMapTips
 
+    if (!this.data.subject) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择文理科！',
+        showCancel: false
+      })
+      return false
+    }
+
     // 验证表单信息
     for (let key in _validateMap) {
       if (!_validateMap[key]) {
@@ -136,8 +147,35 @@ Page({
       success: function (res) {
         wx.showModal({
           title: '提示',
-          content: '信息已提交'
+          content: '信息已提交，奖品将于2018年5月10日全国统一发货',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              wx.redirectTo({
+                url: '/pages/index/index',
+              })
+            }
+          }
         })
+      }
+    })
+  },
+  onLoad: function (param) {
+    console.log(param)
+    var _self = this
+    wx.showNavigationBarLoading()
+    wx.$http({
+      url: app.api.receivePrize,
+      data: {
+        id: param.id
+      },
+      success: function (res) {
+        console.log(res)
+        _self.setData({
+          prizeTitle: res.data.data.title,
+          prizeIndate: res.data.data.indate
+        })
+        wx.hideNavigationBarLoading()
       }
     })
   }

@@ -21,25 +21,36 @@
   right:0;
   left:0;
 }
-
+.form-label-name{
+  padding:30rpx 30rpx 0 30rpx;
+}
 .select-subject{
   display: flex;
-  padding:30rpx 0;
+  padding:30rpx;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 .select-subject .opts-item{
   width:50%;
   font-weight:700;
-  margin:0 30rpx;
-  border:1rpx solid #ccc;
+  border:1rpx solid #fc6139;
   border-radius: 8rpx;
   background-color: #fff;
   text-align: center;
+  color:#fc6139;
   padding:15rpx 0;
 }
 .select-subject text.active{
-  color:#fc6139;
+  color:#fff;
+  background-color: #fc6139;
   border-color: #fc6139;
+}
+.select-subject .opts-split{
+  width:1em;
+  margin:0 20rpx;
+  text-align:center;
+  align-self: center;
+  background-color: transparent;
 }
 .select-subject .iconfont{
   display: inline-block;

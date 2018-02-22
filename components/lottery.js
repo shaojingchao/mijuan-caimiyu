@@ -10,6 +10,7 @@ Component({
    */
   data: {
     step: '1',
+    prizeId: '',
     result: 'luck',
     state: ''
   },
@@ -47,6 +48,7 @@ Component({
           setTimeout(() => {
             _self.setData({
               step: '2',
+              prizeId: res.data.data.id,
               result: res.data.data.isLuck === true ? 'luck' : 'fail'
             })
           }, 1500)

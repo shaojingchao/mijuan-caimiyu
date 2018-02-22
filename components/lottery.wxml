@@ -12,7 +12,7 @@
     <view class='sub-txt' wx:if='{{step === "2" && result === "luck"}}'><text>价值298元押题密卷1套</text></view>
     <view class='btns'>
       <view class='btn btn-wran on-active' bindtap='bindLottery' wx:if='{{step === "1"}}'>点击抽奖</view>
-      <navigator class='btn btn-wran on-active' url='/pages/prize/receive' open-type='redirect' wx:if='{{step === "2" && result === "luck"}}'>领取奖励</navigator>
+      <navigator class='btn btn-wran on-active' url='/pages/prize/receive?id={{prizeId}}' open-type='redirect' wx:if='{{step === "2" && result === "luck"}}'>领取奖励</navigator>
       <navigator class='btn btn-prim on-active' style='margin-top:20rpx;' url='/pages/index/index' wx:if='{{step === "2"}}'>返回首页</navigator>
     </view>
   </view>

@@ -59,7 +59,7 @@
           <!-- <button loading plain class='f26 btn-loading'>加载中</button> -->
         </scroll-view>
         <scroll-view scroll-y bindscrolltolower='scrollToBottom2' wx:if='{{tabCurrentIndex === "2"}}'>
-          <view class='my-prize-item on-active' wx:for='{{myPrize}}' wx:for-item='item' wx:item-index='i' wx:key='i' data-status='{{item.status}}' bindtap='bindReceivePrize'>
+          <view class='my-prize-item {{item.status=="0" ? "on-active" : ""}}' wx:for='{{myPrize}}' wx:for-item='item' wx:item-index='i' wx:key='i' data-status='{{item.status}}' data-id='{{item.id}}' bindtap='bindReceivePrize'>
             <view class='prize-info'>
               <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
               <view class='prize-txt'>
