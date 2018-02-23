@@ -2,6 +2,7 @@ var app = getApp()
 var api = app.api
 Page({
   data: {
+    userPhoto: '/assets/img/avatar.png',
     isDebug: app.globalData.debug,
     lid: 0, //活动id
     times_count: 0,
@@ -21,6 +22,16 @@ Page({
   },
 
   onLoad: function () {
+    var _self = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        _self.setData({
+          userPhoto: res.data.avatarUrl
+        })
+      },
+    })
+    
     wx.setKeepScreenOn({
       keepScreenOn: true
     })
@@ -43,6 +54,7 @@ Page({
     })
   },
   onHide: function () {
+    wx.stopBackgroundAudio()
     this.bindMusicStop()
   },
 

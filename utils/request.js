@@ -42,12 +42,13 @@ function request(param) {
           }
         })
         wx.hideLoading()
-      } else {
-        wx.showToast({
-          icon: 'none',
-          title: _data.msg
-        })
       }
+      //  else {
+      //   wx.showToast({
+      //     icon: 'none',
+      //     title: _data.msg
+      //   })
+      // }
     },
     fail: param.fail || _noop,
     complete: param.complete || _noop

@@ -6,7 +6,7 @@
 
   <!-- 用户信息 -->
   <view class='user-info'>
-    <image class='user-photo' mode='widthFix' src='/assets/img/avatar.png'></image>
+    <image class='user-photo' mode='aspectFit' src='{{userPhoto}}'></image>
     <text class='f34 done-num'>{{current_ques + 1}}</text>
     <text class='f26'>/</text>
     <text class='f26'>{{ques_total}}</text>

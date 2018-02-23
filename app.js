@@ -3,8 +3,8 @@ import request from '/utils/request.js'
 wx.$http = request
 
 var CONFIG = {
-  HOSTNAME: 'http://192.168.4.112:4000',
-  DEBUG: true
+  HOSTNAME: 'https://wx.tesoon.com',
+  DEBUG: false
 }
 App({
   onShow: function () {
@@ -21,6 +21,18 @@ App({
     gamedata: CONFIG.HOSTNAME + '/index/riddle/index.html', // 随机获取谜语
     activityintro: CONFIG.HOSTNAME + '/index/riddle/get-lottery-info.html', // 活动介绍
     persontimes: CONFIG.HOSTNAME + '/index/riddle/get-person-time.html', // 活动介绍
+  },
+  onLaunch: function () {
+    try {
+      var res = wx.getStorageSync('userInfo')
+      if (res) {
+        console.log('res', res)
+        this.globalData.userInfo = res
+        console.log('globalData', this.globalData)
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
   },
   globalData: {
     userInfo: null,

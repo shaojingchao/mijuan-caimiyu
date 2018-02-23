@@ -30,7 +30,9 @@ function login(app, url, cb) {
       wx.getUserInfo({
         success: res => {
           // 可以将 res 发送给后台解码出 unionId
-          app.globalData.userInfo = res.userInfo
+          console.log(res.userInfo)
+          wx.setStorageSync('userInfo', res.userInfo)
+        
           wx.$http({
             url: url,
             data: {

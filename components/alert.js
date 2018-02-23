@@ -24,12 +24,13 @@ Component({
    */
   data: {
     btns: [],
+    userPhoto: '/assets/img/avatar.png',
     isDebug: app.globalData.debug,
     fail_btns: [
       {
-        text: '再来一次',
-        url: '/pages/game/index?restart=1',
-        opentype: 'redirect'
+        text: '',
+        url: '',
+        opentype: ''
       },
       {
         text: '中奖纪录',
@@ -37,10 +38,10 @@ Component({
         opentype: 'navigate'
       },
       {
-        text: '返回首页',
-        url: '/pages/index/index',
-        opentype: 'navigate'
-      },
+        text: '再来一次',
+        url: '/pages/game/index?restart=1',
+        opentype: 'redirect'
+      }
     ],
     success_btns: [
       {
@@ -54,7 +55,7 @@ Component({
         opentype: 'navigate'
       },
       {
-        text: '在玩一次',
+        text: '再玩一次',
         url: '/pages/game/index?restart=1',
         opentype: 'redirect'
       },
@@ -62,6 +63,14 @@ Component({
   },
   attached: function () {
     var _self = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        _self.setData({
+          userPhoto: res.data.avatarUrl
+        })
+      },
+    })
     if (this.properties.type === 'fail') {
       this.setData({
         btns: this.data.fail_btns
@@ -78,6 +87,14 @@ Component({
    */
   methods: {
     bindGoLottery:function(){
+      if (this.properties.times == 0) {
+        wx.showModal({
+          title: '提示',
+          content: '今天的机会用完了-_-',
+          showCancel: false
+        })
+        return false
+      }
       this.triggerEvent('golottery')
     },
     bindLottery: function () {

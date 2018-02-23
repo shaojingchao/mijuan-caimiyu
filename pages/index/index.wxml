@@ -18,11 +18,11 @@
     <view class='tips-tabs'>
       <view class='tips-tabs-nav'>
         <text class='{{tabCurrentIndex === "0" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='0'>活动介绍</text>|
-        <text class='{{tabCurrentIndex === "1" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='1'>中奖纪录</text>|
+        <text class='{{tabCurrentIndex === "1" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='1'>中奖记录</text>|
         <text class='{{tabCurrentIndex === "2" ? "active" : ""}}' bindtap='tabTipsToggle' data-index='2'>我的奖励</text>
       </view>
       <view class='tab-body'>
-        <scroll-view scroll-y bindscrolltolower='scrollToBottom0' class='hd-intro' wx:if='{{tabCurrentIndex === "0"}}'>
+        <scroll-view scroll-y class='hd-intro' wx:if='{{tabCurrentIndex === "0"}}'>
           <view class='intro-item'>
             <view class='intro-tit mb20'>
               <text class='b f26'>活动时间</text>
@@ -48,17 +48,17 @@
             </view>
           </view>
         </scroll-view>
-        <scroll-view scroll-y bindscrolltolower='scrollToBottom1' wx:if='{{tabCurrentIndex === "1"}}'>
+        <scroll-view scroll-y wx:if='{{tabCurrentIndex === "1"}}'>
           <view class='prize-record-item' wx:for='{{prizeRecoreList}}' wx:for-item='item' wx:item-index='i' wx:key='i'>
             <text class='nick-name'>{{item.nickname}}</text>
             <image class='img user-icon' mode='aspectFit' src='{{item.avatarurl}}'></image>
             <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
             <text>{{item.gettime}}</text>
           </view>
-          <view class='tc mt30 f26' style='opacity:0.7;'>最新中奖信息~</view>
+          <view wx:if='{{prizeRecoreList.length == 0}}' class='tc mt30 f26' style='opacity:0.7;'>暂无中奖信息~</view>
           <!-- <button loading plain class='f26 btn-loading'>加载中</button> -->
         </scroll-view>
-        <scroll-view scroll-y bindscrolltolower='scrollToBottom2' wx:if='{{tabCurrentIndex === "2"}}'>
+        <scroll-view scroll-y wx:if='{{tabCurrentIndex === "2"}}'>
           <view class='my-prize-item {{item.status=="0" ? "on-active" : ""}}' wx:for='{{myPrize}}' wx:for-item='item' wx:item-index='i' wx:key='i' data-status='{{item.status}}' data-id='{{item.id}}' bindtap='bindReceivePrize'>
             <view class='prize-info'>
               <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
@@ -66,9 +66,9 @@
                 <view class='prize-name'>
                   <text>{{item.title}}</text>
                 </view>
-                <view class='prize-time f26'>
+                <!-- <view class='prize-time f26'>
                   <text>有效期限：{{item.indate}}</text>
-                </view>
+                </view> -->
               </view>
               <image class='arrow-right' wx:if='{{item.status == 0}}' mode='aspectFit' src='./imgs/arrow_right.png'></image>
             </view>
@@ -83,6 +83,7 @@
               <text>已过期</text>
             </view>
           </view>
+          <view wx:if='{{myPrize.length == 0}}' class='tc mt30 f26' style='opacity:0.7;'>还没有获奖哦~</view>
         </scroll-view>
       </view>
     </view>

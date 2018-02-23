@@ -18,36 +18,54 @@ Page({
   },
   onShow: function (a,b,c) {
     var _self = this
+    _self.getParsonNum()
 
     // 检查登陆态
     wx.checkSession({
       success: function () {
+        console.log('111')
         if (!wx.getStorageSync('login_token')) {
+          //登录
           wx.showLoading({
             title: '正在登录...'
           })
           login(app, app.api.login, function (res) {
-            console.log('已重新登录')
+            _self.getParsonNum()
             wx.hideLoading()
           })
         }
       },
       fail: function (res) {
-        login(app, app.api.login) //重新登录
+         //登录
+        wx.showLoading({
+          title: '正在登录...'
+        })
+        login(app, app.api.login, function (res) {
+          _self.getParsonNum()
+          wx.hideLoading()
+        })
         console.log('checkSession: fail')
       }
     })
-
-    // 获取参与人数
+    this.parseRouteParam(this.options)
+  },
+  onHide: function () {
+    this.setData({
+      hasTipsData: false
+    })
+  },
+  // 获取参与人数
+  getParsonNum: function () {
+    var _self = this
     wx.$http({
       url: app.api.persontimes,
       success: function (res) {
+        console.log('获取参与人数')
         _self.setData({
           personTimes: res.data.data.personTime
         })
       }
     })
-    this.parseRouteParam(this.options)
   },
 
   // 解析页面参数
@@ -104,7 +122,6 @@ Page({
         _self.setData({
           prizeRecoreList: res.data.data
         })
-        console.log(res.data.data[0])
       }
     })
 
@@ -142,11 +159,11 @@ Page({
 
   // 中奖记录加载更多
   scrollToBottom1: function () {
-    console.log(this.data.prizeRecoreList)
-    var _prizeRecoreList = this.data.prizeRecoreList
-    this.setData({
-      prizeRecoreList: _prizeRecoreList.concat([1, 2, 3, 4])
-    })
+    // console.log(this.data.prizeRecoreList)
+    // var _prizeRecoreList = this.data.prizeRecoreList
+    // this.setData({
+    //   prizeRecoreList: _prizeRecoreList.concat([1, 2, 3, 4])
+    // })
   },
 
   // 开始游戏
