@@ -146,8 +146,8 @@ Page({
       data: _myinfo,
       success: function (res) {
         wx.showModal({
-          title: '提示',
-          content: '信息已提交，奖品将于2018年5月10日全国统一发货',
+          title: '领取成功！',
+          content: '2018高考《临考预测押题密卷》将于5月10日全国统一发货！',
           showCancel: false,
           success: function (res) {
             if (res.confirm) {

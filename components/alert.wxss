@@ -44,8 +44,8 @@
 }
 
 .alert-head-photo {
-  width: 174rpx;
-  height: 174rpx;
+  width: 176rpx;
+  height: 176rpx;
   box-sizing: border-box;
   border-radius: 50%;
   border: 10rpx solid rgba(0, 0, 0, 0);

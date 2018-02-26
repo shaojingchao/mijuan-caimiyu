@@ -16,6 +16,10 @@ Component({
     times: {
       type: String,
       value: 0
+    },
+    error: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -25,6 +29,7 @@ Component({
   data: {
     btns: [],
     userPhoto: '/assets/img/avatar.png',
+    error_msg: '',
     isDebug: app.globalData.debug,
     fail_btns: [
       {
@@ -33,7 +38,7 @@ Component({
         opentype: ''
       },
       {
-        text: '中奖纪录',
+        text: '中奖记录',
         url: '/pages/index/index?showtips=1&index=1&t=' + new Date().getTime(),
         opentype: 'navigate'
       },
@@ -50,7 +55,7 @@ Component({
         opentype: 'navigate'
       },
       {
-        text: '中奖纪录',
+        text: '中奖记录',
         url: '/pages/index/index?showtips=1&index=1&t=' + new Date().getTime(),
         opentype: 'navigate'
       },
@@ -80,6 +85,24 @@ Component({
         btns: this.data.success_btns
       })
     }
+
+    var _msg = ''
+    switch (_self.properties.error) {
+      case 1001: _msg = '您已经中过奖了，不能继续抽奖~'
+        break;
+      case 1002: _msg = '今天的抽奖次数已用完~'
+        break;
+      case 1006: _msg = '登录状态过期，请重新登录'
+        break;
+      case 1007: _msg = '活动还没开始哦~'
+        break;
+      case 1008: _msg = '活动已经结束啦~'
+        break;
+    }
+    console.log(_self.properties.error)
+    _self.setData({
+      error_msg: _msg
+    })
   },
 
   /**
@@ -90,7 +113,7 @@ Component({
       if (this.properties.times == 0) {
         wx.showModal({
           title: '提示',
-          content: '今天的机会用完了-_-',
+          content: '今天的抽奖次数用完了~',
           showCancel: false
         })
         return false

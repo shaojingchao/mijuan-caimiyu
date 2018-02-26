@@ -6,6 +6,7 @@ Page({
     isDebug: app.globalData.debug,
     lid: 0, //活动id
     times_count: 0,
+    error: '',
     queslist: [],
     ques_total: 0,
     ready_state: 'start', //状态 ready 3 2 1 done
@@ -16,9 +17,7 @@ Page({
     ques_items: [], // 选项
     current_ques: 0, // 当前题号
     user_answer: [false], // 用户答案
-    music_state: 'stop',
-    lottery: { 
-    }
+    music_state: 'stop'
   },
 
   onLoad: function () {
@@ -93,9 +92,12 @@ Page({
   // 设置当前题
   setCurrentQues: function (order) {
     var data = this.data.queslist[order]
+    // 选项打乱顺序
+    var _ques_items = data.options.sort(function () { return (0.5 - Math.random()) })
+    console.log(data.options)
     this.setData({
       ques_heading: data.content,
-      ques_items: data.options,
+      ques_items: _ques_items,
       ques_times: parseInt(data.timeout),
       current_ques: order,
       ques_selected: null,
@@ -193,7 +195,8 @@ Page({
         _self.setData({
           game_state: 'showscore',
           game_score: res.data.data.grade.toString(),
-          times_count: res.data.data.timesCount.toString()
+          times_count: res.data.data.timesCount.toString(),
+          error: res.data.data.code
         })
         wx.hideLoading()
       }

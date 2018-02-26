@@ -1,9 +1,10 @@
 //app.js
 import request from '/utils/request.js'
 wx.$http = request
-
+var _local = 'http://192.168.4.112:4000'
+var _server = 'https://wx.tesoon.com'
 var CONFIG = {
-  HOSTNAME: 'https://wx.tesoon.com',
+  HOSTNAME: _server,
   DEBUG: false
 }
 App({

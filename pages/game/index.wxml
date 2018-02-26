@@ -44,6 +44,6 @@
   </view>
 
   <!-- 答题完毕 -->
-  <game-alert wx:if='{{game_state === "showscore"}}' score='{{game_score}}' times='{{times_count}}' type='{{game_score == 100 ? "success" : "fail"}}' bind:golottery='bindGoLottery'></game-alert>
+  <game-alert wx:if='{{game_state === "showscore"}}' score='{{game_score}}' error='{{error}}' times='{{times_count}}' type='{{game_score == 100 ? "success" : "fail"}}' bind:golottery='bindGoLottery'></game-alert>
   <game-lottery wx:if='{{game_state === "lottery"}}' bind:bindLottery='bindLottery'></game-lottery>
 </view>

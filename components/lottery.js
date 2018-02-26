@@ -12,7 +12,8 @@ Component({
     step: '1',
     prizeId: '',
     result: 'luck',
-    state: ''
+    state: '',
+    error: ''
   },
   attached: function () {
   },
@@ -49,7 +50,8 @@ Component({
             _self.setData({
               step: '2',
               prizeId: res.data.data.id,
-              result: res.data.data.isLuck === true ? 'luck' : 'fail'
+              result: res.data.data.isLuck === true ? 'luck' : 'fail',
+              error: res.data.error
             })
           }, 1500)
         }

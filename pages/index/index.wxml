@@ -66,9 +66,9 @@
                 <view class='prize-name'>
                   <text>{{item.title}}</text>
                 </view>
-                <!-- <view class='prize-time f26'>
+                 <view wx:if='{{item.status== 0}}' class='prize-time f26'>
                   <text>有效期限：{{item.indate}}</text>
-                </view> -->
+                </view>
               </view>
               <image class='arrow-right' wx:if='{{item.status == 0}}' mode='aspectFit' src='./imgs/arrow_right.png'></image>
             </view>

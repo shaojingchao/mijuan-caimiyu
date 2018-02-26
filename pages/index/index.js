@@ -114,11 +114,11 @@ Page({
       }
     })
 
-    // 中奖纪录
+    // 中奖记录
     wx.$http({
       url: app.api.prizerecordlist,
       success: function (res) {
-        console.log('中奖纪录', res)
+        console.log('中奖记录', res)
         _self.setData({
           prizeRecoreList: res.data.data
         })
