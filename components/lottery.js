@@ -2,10 +2,6 @@
 var app = getApp()
 Component({
   /**
-   * 组件的属性列表
-   */
-
-  /**
    * 组件的初始数据
    */
   data: {
@@ -20,7 +16,11 @@ Component({
 
   /**
    * 组件的方法列表
-   * {
+   */
+  methods: {
+    // 抽奖
+    /*
+     {
     "data": {
         "id": 2,
         "isLuck": false,
@@ -29,10 +29,8 @@ Component({
     },
     "error": 0,
     "msg": "ok"
-}
-   */
-  methods: {
-    // 抽奖
+    }
+    */
     bindLottery: function () {
       console.log('bindLottery')
       var _self = this

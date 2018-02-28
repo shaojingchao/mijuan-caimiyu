@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="app-page">
   <image class='app-bg' mode='widthFix' src='/assets/img/idx_bg.png'></image>
-  <image class='idx-tips-btn anim-zoom on-active' bindtap='bindShowTips' mode='widthFix' src='./imgs/tips_btn.png'></image>
-  <image class='idx-top-title anim-zoom' mode='widthFix' src='./imgs/idx_title.png'></image>
-  <image class='idx-play-btn on-active' mode='widthFix' src='./imgs/play_btn.png' bindtap='bindStartGame'></image>
+  <image class='idx-tips-btn anim-zoom on-active' bindtap='bindShowTips' mode='widthFix' src='/assets/img/tips_btn.png'></image>
+  <image class='idx-top-title anim-zoom' mode='widthFix' src='/assets/img/idx_title.png'></image>
+  <image class='idx-play-btn on-active' mode='widthFix' src='/assets/img/play_btn.png' bindtap='bindStartGame'></image>
 
   <!-- <button></button> -->
   <view class='idx-people-num on-active'>已有
@@ -52,7 +52,7 @@
           <view class='prize-record-item' wx:for='{{prizeRecoreList}}' wx:for-item='item' wx:item-index='i' wx:key='i'>
             <text class='nick-name'>{{item.nickname}}</text>
             <image class='img user-icon' mode='aspectFit' src='{{item.avatarurl}}'></image>
-            <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
+            <image class='img' mode='aspectFit' src='/assets/img/mijuan.png'></image>
             <text>{{item.gettime}}</text>
           </view>
           <view wx:if='{{prizeRecoreList.length == 0}}' class='tc mt30 f26' style='opacity:0.7;'>暂无中奖信息~</view>
@@ -61,7 +61,7 @@
         <scroll-view scroll-y wx:if='{{tabCurrentIndex === "2"}}'>
           <view class='my-prize-item {{item.status=="0" ? "on-active" : ""}}' wx:for='{{myPrize}}' wx:for-item='item' wx:item-index='i' wx:key='i' data-status='{{item.status}}' data-id='{{item.id}}' bindtap='bindReceivePrize'>
             <view class='prize-info'>
-              <image class='img' mode='aspectFit' src='./imgs/mijuan.png'></image>
+              <image class='img' mode='aspectFit' src='/assets/img/mijuan.png'></image>
               <view class='prize-txt'>
                 <view class='prize-name'>
                   <text>{{item.title}}</text>
@@ -70,7 +70,7 @@
                   <text>有效期限：{{item.indate}}</text>
                 </view>
               </view>
-              <image class='arrow-right' wx:if='{{item.status == 0}}' mode='aspectFit' src='./imgs/arrow_right.png'></image>
+              <image class='arrow-right' wx:if='{{item.status == 0}}' mode='aspectFit' src='/assets/img/arrow_right.png'></image>
             </view>
             <view class='prize-state' wx:if='{{item.status == 0}}'>
               <text>未领取</text>

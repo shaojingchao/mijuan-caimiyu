@@ -61,8 +61,8 @@
 }
 .ready-box .num{
    display: block; 
-  width:100rpx;
-  height:100rpx;
+  width:140rpx;
+  height:140rpx;
   margin:0 auto;
   margin-top:50vh;
   transform: translateY(-50%);

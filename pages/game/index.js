@@ -31,9 +31,6 @@ Page({
       },
     })
     
-    wx.setKeepScreenOn({
-      keepScreenOn: true
-    })
     wx.showLoading({
       title: '正在加载...',
     })
@@ -53,10 +50,11 @@ Page({
     })
   },
   onHide: function () {
-    wx.stopBackgroundAudio()
     this.bindMusicStop()
   },
-
+  onUnload: function () {
+    this.bindMusicStop()
+  },
   // 播放背景音乐
   bindMusicOn: function () {
     var _self = this
@@ -213,5 +211,22 @@ Page({
   //   this.setData({
   //     game_state: 'done'
   //   })
-  // }
+  // },
+  // 转发
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '猜灯谜闹元宵',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  }
 })

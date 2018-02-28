@@ -2,7 +2,6 @@
   "pages":[
     "pages/index/index",
     "pages/game/index",
-    "pages/prize/index",
     "pages/prize/receive",
     "pages/logs/logs"
   ],

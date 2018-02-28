@@ -120,15 +120,15 @@ Component({
       }
       this.triggerEvent('golottery')
     },
-    bindLottery: function () {
-      var _self = this.properties.lid
-      wx.$http({
-        url: app.api.lottery,
-        lid: app.globalData.lid,
-        success: function (res) {
-          console.log(res)
-        }
-      })
-    }
+    // bindLottery: function () {
+    //   var _self = this.properties.lid
+    //   wx.$http({
+    //     url: app.api.lottery,
+    //     lid: app.globalData.lid,
+    //     success: function (res) {
+    //       console.log(res)
+    //     }
+    //   })
+    // }
   }
 })

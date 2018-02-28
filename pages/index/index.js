@@ -16,6 +16,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  onLoad: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
   onShow: function (a,b,c) {
     var _self = this
     _self.getParsonNum()
