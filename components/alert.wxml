@@ -11,7 +11,9 @@
   <view class='alert-body'>
     <view class='main-txt'><text>您的成绩为： {{score}}分</text></view>
     <view><text>成绩必须达到 100 分才能抽奖</text></view>
-    <view class='times-txt' wx:if='{{error == 0}}'><text>今天还有 {{times}} 次机会抽奖</text></view>
+    <view class='times-txt' wx:if='{{error == 0}}'>
+      <text>您还有 {{times}} 次机会抽奖</text>
+    </view>
     <view class='times-txt' wx:else><text>{{error_msg}}</text></view>
     <view class='btns' wx:if='{{btns.length}}'>
       <!-- <navigator class='btn btn-wran on-active' wx:if='{{type==="fail"}}' open-type='{{btns[0].opentype}}' url='{{btns[0].url}}'>{{btns[0].text}}</navigator> -->

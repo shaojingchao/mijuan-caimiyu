@@ -88,9 +88,9 @@ Component({
 
     var _msg = ''
     switch (_self.properties.error) {
-      case 1001: _msg = '您已经中过奖了，不能继续抽奖~'
+      case 1001: _msg = '已经中过奖了，不能继续抽奖~'
         break;
-      case 1002: _msg = '今天的抽奖次数已用完~'
+      case 1002: _msg = '抽奖次数已用完~'
         break;
       case 1006: _msg = '登录状态过期，请重新登录'
         break;
@@ -113,7 +113,7 @@ Component({
       if (this.properties.times == 0) {
         wx.showModal({
           title: '提示',
-          content: '今天的抽奖次数用完了~',
+          content: '抽奖次数用完了~',
           showCancel: false
         })
         return false
